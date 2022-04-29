@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    Task Master
+{% endblock %}
+
+{% block body %}
+        <h1 class="subtitle">Atualização de tarefas</h1>
+        <form action="/update/{{task.id}}" method="POST" class="form-group" id="form_box">
+            <input type="text" name="content" id="content" class="form-control" placeholder="Digite uma tarefa" value="{{task.content}}" />
+            <input type="submit" name="content" id="submit" value="Atualizar" class="btn btn-primary form-control" />
+        </form>
+{% endblock %}

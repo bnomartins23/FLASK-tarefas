@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    Task Master
+{% endblock %}
+
+{% block body %}
+        <h1 class="subtitle">Controle de Tarefas</h1>
+        <table class="table">
+            {% for task in tasks %}
+                <tr>
+                    <th>Task</th>
+                    <th>Aded</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <th>{{ task.content }}</th>
+                    <th>{{ task.date_created.date() }}</th>
+                    <th>
+                        <a href="/delete/{{task.id}}">Remover</a><br>
+                        <a href="/update/{{task.id}}">Atualizar</a>
+                    </th>
+                </tr>
+            {% endfor %}
+        </table>
+        <form action="/" method="POST" class="form-group" id="task_box">
+            <input type="text" name="content" id="content" class="form-control" placeholder="Digite uma tarefa"/>
+            <input type="submit" name="content" id="submit" value="Adicionar" class="btn btn-primary form-control" />
+        </form>
+{% endblock %}
